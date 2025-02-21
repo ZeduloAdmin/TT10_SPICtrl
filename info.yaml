@@ -23,9 +23,9 @@ project:
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
   # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
+  ui[0]: "SPI MOSI"
+  ui[1]: "SPI CLK"
+  ui[2]: "SPI CS"
   ui[3]: ""
   ui[4]: ""
   ui[5]: ""
@@ -33,14 +33,14 @@ pinout:
   ui[7]: ""
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
+  uo[0]: "SPI MISO"
+  uo[1]: "debug"
+  uo[2]: "system clk mirror"
   uo[3]: ""
   uo[4]: ""
   uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[6]: "status"
+  uo[7]: "spi reset status"
 
   # Bidirectional pins
   uio[0]: ""
