@@ -28,8 +28,8 @@ module tb;
 //    assign {debug, led_reset, led_status, spi_miso} = uo_out[3:0];
 
     initial begin
-        $dumpfile("nanospi_test.vcd");
-        $dumpvars(0, nanospi_test);
+        $dumpfile("tb.vcd");
+        $dumpvars(0, tb);
 
         spi_clk = 1;
         #RESET_DURATION           rst_n        = 1'b1;
@@ -117,7 +117,11 @@ module tb;
  
     //nanospi_top top(clk, rst_n, spi_mosi, spi_clk, spi_miso, led_status, led_reset, debug);
 
-    tt_um_zedulo_spitest1 top(spi_mosi, spi_clk, spi_cs, 5'h0, spi_miso, 7'hzz, 8'h00, h8'hzz, 8'h00, 1'b1, clk, rst_n);
+    reg [6:0] ou_out_dest;
+    reg [7:0] uio_out_dest;
+    reg [7:0] uio_oe_dest;
+
+    tt_um_zedulo_spitest1 top({spi_mosi, spi_clk, spi_cs, 5'h0}, {spi_miso, ou_out_dest[6:0]}, 8'h00, uio_out_dest[7:0], uio_oe_dest, 1'b1, clk, rst_n);
   
  /*  
     input  wire [7:0] ui_in,    // Dedicated inputs
@@ -129,7 +133,7 @@ module tb;
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 */
-);
+
 
 
 endmodule
